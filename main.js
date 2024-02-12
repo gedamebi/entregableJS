@@ -50,7 +50,7 @@ function agregarAlumno(){
                 id = alumnos[alumnos.length - 1].id + 1
             }
 
-            var nuevoAlumno = { id: id, nombre: nombre, edad: edad, ci: ci }
+            let nuevoAlumno = { id: id, nombre: nombre, edad: edad, ci: ci }
             alumnos.push(nuevoAlumno)
         } else {
             alert("Alumno ya se encuentra ingresado")
@@ -122,7 +122,7 @@ function agregarCurso(){
             id = cursos[cursos.length - 1].id + 1
         }
 
-        var nuevoCurso = { id: id, nombre: nombre, duracionEnSemanas: duracionEnSemanas }
+        let nuevoCurso = { id: id, nombre: nombre, duracionEnSemanas: duracionEnSemanas }
         cursos.push(nuevoCurso)
     } else {
         alert("Debes ingresar todos los campos, error al ingresar curso")
