@@ -1,0 +1,175 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Declaracion de variables */
+@keyframes efecto_mensaje {
+    0% {
+      opacity: 0; }
+    50% {
+      opacity: 1; }
+    100% {
+      opacity: 0; } 
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #2A2A2A;
+    color: white;
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    padding: 25px;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 28px;
+    color: white;
+    text-align: center;
+    animation-name: efecto_mensaje;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-duration: 4s;
+}
+
+#menu {
+    text-align: center;
+}
+
+#menu ul {
+    list-style-type: none;
+    margin-top: 5%;
+    padding-left: 0rem;
+}
+
+#menu li {
+    margin-top: 1%;
+}
+
+#menu a {
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+#menu a:hover {
+    font-weight: bold;
+    transform: scale(1.1); 
+}
+
+
+/* 
+
+Estilos para contenido de alumnos  
+
+*/
+
+#contenido_alumnos #nuevoElemento {
+    text-align: right;
+}
+
+#contenido_alumnos #nuevoElemento a {
+    text-decoration: none;
+    color: wheat;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 25px;
+}
+
+#contenido_alumnos .grid-table {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) 0.3fr; /* 5 columnas con igual ancho */
+    border: 1px solid #ccc; /* Borde para la tabla */
+}
+
+#contenido_alumnos .grid-row {
+    display: contents; /* Hace que los elementos hijos sean tratados como parte del contenedor */
+}
+
+#contenido_alumnos .header{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+
+#contenido_alumnos .grid-cell {
+    border: 1px solid #ccc; /* Borde para las celdas */
+    padding: 10px;
+}
+
+#contenido_alumnos #colum-accion a {
+    padding: 3px;
+}
+
+
+
+/* 
+
+Estilos para contenido de cursos  
+
+*/
+#contenido_cursos #nuevoElemento {
+    text-align: right;
+}
+
+#contenido_cursos #nuevoElemento a {
+    text-decoration: none;
+    color: wheat;
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 25px;
+}
+
+#contenido_cursos .grid-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 0.3fr;
+    border: 1px solid #ccc; /* Borde para la tabla */
+}
+
+#contenido_cursos .grid-row {
+    display: contents; /* Hace que los elementos hijos sean tratados como parte del contenedor */
+}
+
+#contenido_cursos .header{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+
+#contenido_cursos .grid-cell {
+    border: 1px solid #ccc; /* Borde para las celdas */
+    padding: 10px;
+}
+
+#contenido_cursos #colum-accion a {
+    padding: 3px;
+}
+
+
+
+/* Estilos para el pie de pagina */
+footer {
+    background-color: yellow;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%; 
+}
