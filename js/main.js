@@ -74,7 +74,6 @@ function agregarAlumno(){
 
 function eliminarAlumno(id){
     const confirmacion = confirm("¿Estás seguro de que deseas eliminar el alumno con ID: " + id + " ?");
-
     if (confirmacion) {
         // Utiliza el método filter() para crear un nuevo array sin el alumno que tiene el ID que pasamos por parametro
         alumnos = alumnos.filter(function(alumno) {
@@ -159,6 +158,11 @@ function cargarFormularioEdicionAlumno(){
 
     let ci = document.getElementById("ci")
     ci.value = alumnoEncontrado.ci
+
+    let btnEditar = document.getElementById("btnEditar")
+    btnEditar.onclick=(event)=>{
+        editarAlumno()
+    }
 }
 
 function editarAlumno(){
@@ -337,6 +341,11 @@ function cargarFormularioEdicionCursos(){
 
     let horas = document.getElementById("horas")
     horas.value = cursoEncontrado.horas
+
+    let btnEditar = document.getElementById("btnEditar")
+    btnEditar.onclick=(event)=>{
+        editarCurso()
+    }
 }
 
 function editarCurso(){
