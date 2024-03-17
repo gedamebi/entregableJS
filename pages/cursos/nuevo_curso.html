@@ -6,7 +6,8 @@
     <meta name="author" content="German Medina">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/estilos.css">
-    <script src="../../js/main.js"></script>
+    <script defer src="../../js/main.js"></script>
+    <script defer src="../../js/cursos/nuevo_curso.js"></script>
     <title>Cursos</title>
 </head>
 <body>
@@ -31,7 +32,7 @@
                     <input type="number" class="form-control" id="horas" placeholder="Ingrese las horas del curso" required>
                     <small id="edadHelp" class="form-text text-muted">Este campo es obligatorio.</small>
                 </div>
-                <button type="button" class="btn btn-primary" onclick="agregarCurso();">Guardar</button>
+                <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
             </form>
             <span id="mensaje"></span>
         </section>
