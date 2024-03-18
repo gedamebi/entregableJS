@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "nombre": "Programacion Javascript",
+        "horas": 24
+    },
+    {
+        "id": 2,
+        "nombre": "NodeJS",
+        "horas": 24
+    },
+    {
+        "id": 3,
+        "nombre": "Programacion PHP",
+        "horas": 36
+    },
+    {
+        "id": 4,
+        "nombre": "React JS",
+        "horas": 36
+    }
+]

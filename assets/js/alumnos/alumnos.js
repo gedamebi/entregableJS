@@ -1,10 +1,9 @@
 
 
-
-function eliminarCurso(id){
+function eliminarAlumno(id){
     Swal.fire({
         icon: "question",
-        title: "¿Estás seguro de que deseas eliminar el curso con ID: " + id + " ?",
+        title: "¿Estás seguro de que deseas eliminar el alumno con ID: " + id + " ?",
         showClass: {
             popup: `
                 animate__animated
@@ -27,15 +26,15 @@ function eliminarCurso(id){
     }).then((result) => {
         if (result.isConfirmed) {
             // Utiliza el método filter() para crear un nuevo array sin el curso que tiene el ID que pasamos por parametro
-            cursos = cursos.filter(function(curso) {
-                return curso.id !== id;
+            alumnos = alumnos.filter(function(alumnos) {
+                return alumnos.id !== id;
             });
-            localStorage.setItem("cursos", JSON.stringify(cursos))
-            let filaEliminarEnTabla = document.getElementById("fila-curso-" + id);
+            localStorage.setItem("alumnos", JSON.stringify(alumnos))
+            let filaEliminarEnTabla = document.getElementById("fila-alumno-" + id);
             filaEliminarEnTabla.remove();
 
             Toastify({
-                text: "Curso " + id + " eliminado correctamente",
+                text: "Alumno " + id + " eliminado correctamente",
                 duration: 2000,
                 destination: "https://github.com/apvarun/toastify-js",
                 newWindow: true,
@@ -53,9 +52,17 @@ function eliminarCurso(id){
 }
 
 
-function cargarCursos(){
+
+async function cargarAlumnos(){
+    await cargarAlumnosDB()
+    
+    cargoTablaDOM()
+    cargoEventoChangeParaSelectAlumnos()
+}
+
+function cargoTablaDOM(){
     // Obtengo la tabla para agregar contenido
-    let tabla = document.getElementById('tablaCursos')
+    let tabla = document.getElementById('tablaAlumnos')
 
     // Elimino todo el contenido del div.
     while (tabla.firstChild) {
@@ -68,28 +75,43 @@ function cargarCursos(){
     filaHeader.classList.add('header');
     filaHeader.innerHTML =    `<div class="grid-cell">ID</div>
                             <div class="grid-cell">Nombre</div>
-                            <div class="grid-cell">Horas</div>
+                            <div class="grid-cell">Edad</div>
+                            <div class="grid-cell">C.I</div>
                             <div class="grid-cell">Accion</div>`;
     tabla.appendChild(filaHeader)
 
-    cursos.forEach(curso => {
+    alumnosJson.forEach(alumno => {
         const fila = document.createElement("div")
         // Le agrego la clase grid-row al div creado
         fila.classList.add('grid-row');
-        fila.id = `fila-curso-${curso.id}`
-        fila.innerHTML =    `<div class="grid-cell">${curso.id}</div>
-                            <div class="grid-cell">${curso.nombre}</div>
-                            <div class="grid-cell">${curso.horas}</div>
+        fila.id = `fila-alumno-${alumno.id}`
+        fila.innerHTML =    `<div class="grid-cell datosFijos">${alumno.id}</div>
+                            <div class="grid-cell datosFijos">${alumno.nombre}</div>
+                            <div class="grid-cell datosFijos">${alumno.edad}</div>
+                            <div class="grid-cell datosFijos">${alumno.ci}</div>
+                            <div class="grid-cell datosFijos" id="colum-accion"></div>`;
+        tabla.appendChild(fila)
+    });
+
+    alumnos.forEach(alumno => {
+        const fila = document.createElement("div")
+        // Le agrego la clase grid-row al div creado
+        fila.classList.add('grid-row');
+        fila.id = `fila-alumno-${alumno.id}`
+        fila.innerHTML =    `<div class="grid-cell">${alumno.id}</div>
+                            <div class="grid-cell">${alumno.nombre}</div>
+                            <div class="grid-cell">${alumno.edad}</div>
+                            <div class="grid-cell">${alumno.ci}</div>
                             <div class="grid-cell" id="colum-accion">
-                                <a href='editar_curso.html?id=${curso.id}'><img src='../../img/editar.png' alt='editar' width='20px' title='Editar Alumno'/></a>
-                                <a href='#' class="linkDelCurso" id="del_curso-${curso.id}"><img src='../../img/eliminar.png' alt='editar' width='20px' title='Eliminar Alumno'/></a>
+                                <a href='editar_alumno.html?id=${alumno.id}'><img src='../../assets/img/editar.png' alt='editar' width='20px' title='Editar Alumno'/></a>
+                                <a href='#' class="linkDelUser" id="del_usuario-${alumno.id}"><img src='../../assets/img/eliminar.png' alt='editar' width='20px' title='Eliminar Alumno'/></a>
                             </div>`;
         tabla.appendChild(fila)
     });
 
 
-    // Obtener todos los elementos a con la clase 'linkDelCurso'
-    let enlaces = document.querySelectorAll('.linkDelCurso');
+    // Obtener todos los elementos a con la clase 'linkDelUser'
+    let enlaces = document.querySelectorAll('.linkDelUser');
 
     // Iterar sobre cada enlace y añadir un evento de clic
     enlaces.forEach(function(enlace) {
@@ -103,16 +125,15 @@ function cargarCursos(){
             // Dividir la cadena usando el - como delimitador
             let partes = idEnlaceClickeado.split('-');
 
-            // Llamo a la funcion eliminar curso y le paso el ID
-            eliminarCurso(parseInt(partes[1]));
+            // Llamo a la funcion eliminar alumno y le paso el ID
+            eliminarAlumno(parseInt(partes[1]));
         });
     });
 }
 
-
-function cargoEventoChangeParaSelectCursos (){
+function cargoEventoChangeParaSelectAlumnos (){
     // Obtener una referencia al elemento <select> por su ID
-    let select = document.getElementById("ordenarPor_Cursos");
+    let select = document.getElementById("ordenarPor_Alumnos");
     // Agregar un event listener para capturar el cambio de valor
     select.addEventListener("change", function() {
         // Obtener el valor seleccionado
@@ -121,32 +142,37 @@ function cargoEventoChangeParaSelectCursos (){
         switch (valorSeleccionado){
             case "id":
                 // Ordenar el array por el atributo 'id' utilizando una función de comparación
-                cursos.sort(function(a, b) {
+                alumnos.sort(function(a, b) {
                     return a.id - b.id;
                 });
-                cargarCursos()
+                cargoTablaDOM()
                 break
             case "nombre":
                 // Ordenar el array por el atributo 'nombre' utilizando una función de comparación
-                cursos.sort(function(a, b) {
+                alumnos.sort(function(a, b) {
                     return a.nombre.localeCompare(b.nombre)
                 });
-                cargarCursos()
+                cargoTablaDOM()
                 break    
-            case "horas":
+            case "edad":
                 // Ordenar el array por el atributo 'edad' utilizando una función de comparación
-                cursos.sort(function(a, b) {
-                    return a.horas - b.horas;
+                alumnos.sort(function(a, b) {
+                    return a.edad - b.edad;
                 });
-                cargarCursos()
+                cargoTablaDOM()
+                break
+            case "ci":
+                // Ordenar el array por el atributo 'ci' utilizando una función de comparación
+                alumnos.sort(function(a, b) {
+                    return a.ci.localeCompare(b.ci)
+                });
+                cargoTablaDOM()
                 break
         }       
     });
 }
 
-
-cargarCursos()
-cargoEventoChangeParaSelectCursos()
+cargarAlumnos()
 
 let mensajeLS = localStorage.getItem("mensaje")
 if (mensajeLS){

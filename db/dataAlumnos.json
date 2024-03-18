@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nombre": "German Medina",
+        "edad": 32,
+        "ci": "123456789"
+    },
+    {
+        "id": 2,
+        "nombre": "Leonardo Diaz",
+        "edad": 45,
+        "ci": "123123123"
+    },
+    {
+        "id": 3,
+        "nombre": "Mathias Gonzalez",
+        "edad": 33,
+        "ci": "123412345"
+    },
+    {
+        "id": 4,
+        "nombre": "Andrea de los Santos",
+        "edad": 31,
+        "ci": "111111111"
+    }
+]

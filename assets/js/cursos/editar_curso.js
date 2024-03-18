@@ -1,6 +1,7 @@
 
 
-function cargarFormularioEdicionCursos(){
+async function cargarFormularioEdicionCursos(){
+    await cargarCursosDB()
     // Obtener la cadena de consulta de la URL
     let queryString = window.location.search
     // Eliminar el "?" del principio de la cadena de consulta
@@ -43,7 +44,9 @@ function editarCurso(){
     let nombre = document.getElementById("nombre").value
     let horas = parseInt(document.getElementById("horas").value)
 
-    if (nombre != "" && horas != ""){
+    let form = document.getElementById("formEditarCurso")
+
+    if (nombre != "" && !isNaN(horas)){
         // Busca el índice del curso con el ID especificado
         let indice = cursos.findIndex(function(curso) {
             return curso.id == id;
@@ -58,6 +61,9 @@ function editarCurso(){
         localStorage.setItem("mensaje", "Curso " + id + " modificado correctamente")
 
         window.location.href = 'cursos.html';
+    } else {
+        // Si no es válido, mostrar mensajes de validación
+        form.classList.add('was-validated');
     }
 }
 

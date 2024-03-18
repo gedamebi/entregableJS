@@ -110,9 +110,15 @@ Estilos para contenido de alumnos
     padding: 10px;
 }
 
+#contenido_alumnos .datosFijos{
+    background-color: darkslategray;
+}
+
 #contenido_alumnos #colum-accion a {
     padding: 3px;
 }
+
+
 
 
 
@@ -153,6 +159,10 @@ Estilos para contenido de cursos
 #contenido_cursos .grid-cell {
     border: 1px solid #ccc; /* Borde para las celdas */
     padding: 10px;
+}
+
+#contenido_cursos .datosFijos{
+    background-color: darkslategray;
 }
 
 #contenido_cursos #colum-accion a {

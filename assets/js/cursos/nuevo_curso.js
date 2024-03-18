@@ -1,12 +1,17 @@
 
 
-function agregarCurso(){
+async function agregarCurso(){
+
+    await cargarCursosDB()
+
     let nombre = document.getElementById("nombre").value
     let horas = parseInt(document.getElementById("horas").value)
 
-    if (nombre != "" && horas != ""){
+    let form = document.getElementById("formAgregarCurso")
 
-        let id = 1
+    if (nombre != "" && !isNaN(horas)){
+
+        let id = 5
         if (cursos.length > 0){
             // En caso que el array no este vacio obtenemos el ultimo ID ingresado y le sumamos 1
             id = cursos[cursos.length -1].id + 1
@@ -17,6 +22,9 @@ function agregarCurso(){
         localStorage.setItem("cursos", JSON.stringify(cursos))
         localStorage.setItem("mensaje", "Se ingreso correctamente el curso " + nombre)
         window.location.href = 'cursos.html';
+    } else {
+        // Si no es válido, mostrar mensajes de validación
+        form.classList.add('was-validated');
     }
 }
 

@@ -1,5 +1,6 @@
 
-function cargarFormularioEdicionAlumno(){
+async function cargarFormularioEdicionAlumno(){
+    await cargarAlumnosDB()
     // Obtener la cadena de consulta de la URL
     let queryString = window.location.search
     // Eliminar el "?" del principio de la cadena de consulta
@@ -45,7 +46,9 @@ function editarAlumno(){
     let nombre = document.getElementById("nombre").value
     let edad = parseInt(document.getElementById("edad").value)
 
-    if (nombre != "" && edad != ""){
+    let form = document.getElementById("formEditarAlumno")
+
+    if (nombre != "" && edad != "" && !isNaN(edad)){
         // Busca el índice del alumno con el ID especificado
         let indice = alumnos.findIndex(function(alumno) {
             return alumno.id == id;
@@ -60,6 +63,10 @@ function editarAlumno(){
 
         localStorage.setItem("mensaje", "Alumno " + id + " modificado correctamente")
         window.location.href = 'alumnos.html';
+
+    } else {
+        // Si no es válido, mostrar mensajes de validación
+        form.classList.add('was-validated');
     }
 }
 
