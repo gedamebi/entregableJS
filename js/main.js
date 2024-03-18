@@ -1,21 +1,12 @@
  
-/* let alumnos
+let alumnos
 let alumnosLS = localStorage.getItem("alumnos")
 if (alumnosLS){
     alumnos = JSON.parse(alumnosLS)
 } else {
     alumnos = []
 }
- */
 
-fetch("../../db/dataAlumnos.json")
-.then(response => response.json())
-.then(data => {
-    console.log(data)
-    data.forEach(alumnos => {
-        
-    })
-})
 
 class Alumno{
     constructor(id, nombre, edad, ci){

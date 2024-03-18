@@ -25,13 +25,12 @@ function eliminarAlumno(id){
         denyButtonText: `Cancelar`
     }).then((result) => {
         if (result.isConfirmed) {
-            // Utiliza el método filter() para crear un nuevo array sin el alumno que tiene el ID que pasamos por parametro
-            alumnos = alumnos.filter(function(alumno) {
-                return alumno.id !== id;
+            // Utiliza el método filter() para crear un nuevo array sin el curso que tiene el ID que pasamos por parametro
+            alumnos = alumnos.filter(function(alumnos) {
+                return alumnos.id !== id;
             });
-
             localStorage.setItem("alumnos", JSON.stringify(alumnos))
-            let filaEliminarEnTabla = document.getElementById("fila-alumno-" + id);
+            let filaEliminarEnTabla = document.getElementById("fila-curso-" + id);
             filaEliminarEnTabla.remove();
 
             Toastify({
