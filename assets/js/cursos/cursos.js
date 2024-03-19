@@ -113,7 +113,7 @@ function cargoTablaDOM(){
     // Iterar sobre cada enlace y añadir un evento de clic
     enlaces.forEach(function(enlace) {
         enlace.addEventListener('click', function(event) {
-            // Prevenir el comportamiento predeterminado del enlace (navegación a otra página)
+            // Prevenir el comportamiento predeterminado del enlace
             event.preventDefault();
 
             // Obtener el ID del enlace clickeado
