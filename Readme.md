@@ -23,6 +23,7 @@ Cambios realizados respecto a la pre entrega 2:
   - Quitar todos los console.log, prompt, alert, confirm y sustituirlo por librerias mencionadas en el punto anterior
   - Agregar archivo Json con datos fijos cargados para aplicar uso de fetch 
     - "Estos datos no pueden ser alterados por eso se quitan componentes de edicion y eliminacion en el DOM"
+    - "El select para ordenar la tabla solo aplica a los datos dinamicos dejando los fijos traidos por fetch al principio del todo"
 
 
 <br><br>
