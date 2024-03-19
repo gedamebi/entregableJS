@@ -1,7 +1,4 @@
 <h1 align="center">Programación JavaScript</h1><br><br>
-<p align="center"> 
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY0JeyLTcn-kwLcHWl0gf3XzfFnot6eshV2ms8RVkEmzZst74I4X24PO8KCT7inFz46W0&usqp=CAU" alt="backend" />
-</p>
 <br>
 <h2 align="center">Lenguaje y Herramientas</h2>
 <br><br>
