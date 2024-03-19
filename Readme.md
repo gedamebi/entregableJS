@@ -22,7 +22,7 @@ Cambios realizados respecto a la pre entrega 2:
   - Incluir librerias como Swit Alerts, Toastify, Animate.css
   - Quitar todos los console.log, prompt, alert, confirm y sustituirlo por librerias mencionadas en el punto anterior
   - Agregar archivo Json con datos fijos cargados para aplicar uso de fetch 
-    - "Estos datos no pueden ser alterados por eso se quitan componentes de edicion y elimnacion en el DOM"
+    - "Estos datos no pueden ser alterados por eso se quitan componentes de edicion y eliminacion en el DOM"
 
 
 <br><br>
