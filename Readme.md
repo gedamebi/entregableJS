@@ -9,7 +9,7 @@
 </p>
 <br><br>
 
-<h3><a href="https://vending.smartmarket.com.uy/Entregable/index.html" target="_blank">Ver Online</a></h3>
+
 
 ---
 <br><br>
@@ -28,7 +28,8 @@ Cambios realizados respecto a la pre entrega 2:
 
 
 <br><br>
-[Ver online](https://vending.smartmarket.com.uy/Entregable/index.html)
+
+<h3><a href="https://vending.smartmarket.com.uy/Entregable/index.html" target="_blank">Ver de manera Online</a></h3>
 
 ---
 ### Autor: Germán Medina
