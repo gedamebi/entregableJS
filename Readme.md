@@ -9,7 +9,7 @@
 </p>
 <br><br>
 
-[Ver Online](https://vending.smartmarket.com.uy/Entregable/index.html)
+<h3><a href="https://vending.smartmarket.com.uy/Entregable/index.html" target="_blank">Ver Online</a></h3>
 
 ---
 <br><br>
