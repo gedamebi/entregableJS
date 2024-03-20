@@ -28,7 +28,7 @@ Cambios realizados respecto a la pre entrega 2:
 
 
 <br><br>
-https://vending.smartmarket.com.uy/Entregable/index.html
+[Ver online](https://vending.smartmarket.com.uy/Entregable/index.html)
 
 ---
 ### Autor: Germán Medina
