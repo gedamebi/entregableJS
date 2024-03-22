@@ -11,7 +11,7 @@ async function cargarAlumnosDB(){
         No se podran ordenar estos elementos en la tabla mostrandolo siempre al principio en el orden que esta en el Json
         Estos datos quedan diferenciados en la tabla con un background-color diferente el resto de las filas
     */
-    await fetch("../../../db/dataAlumnos.json")
+    await fetch("../../db/dataAlumnos.json")
         .then(response => response.json())
         .then(data => {
             if(data.length > 0){
@@ -61,7 +61,7 @@ async function cargarCursosDB(){
         No se podran ordenar estos elementos en la tabla mostrandolo siempre al principio en el orden que esta en el Json
         Estos datos quedan diferenciados en la tabla con un background-color diferente el resto de las filas
     */
-    await fetch("../../../db/dataCursos.json")
+    await fetch("../../db/dataCursos.json")
         .then(response => response.json())
         .then(data => {
             if(data.length > 0){
